@@ -52,6 +52,7 @@ function start() {
     //create new array for bees
     bees = new Array();
     //create bees
+   
     makeBees();
 
     updateBees();
@@ -70,9 +71,7 @@ function start() {
     timeP.onchange = function(){
         updateBees();
     };
-
-    var x =  $("#ResetButton");
-    x.addEventListener("click",reset());
+    
 }
 
 function moveBear(e) {
@@ -213,7 +212,7 @@ function updateBees() { // update loop for game
     //use a fixed update period
     let score = hits.innerHTML;
     if(score>=1000){
-        gameOver.innerHTML = "GAME OVER!";
+        alert("Game Over");
         updateTimer.clearTimeout();
     };
 
@@ -265,8 +264,16 @@ function overlap(element1, element2) {
         return true;
 }
 
-
 function reset(){
-    updateTimer = (0);
 
-}
+        hits.innerHTML = 0;
+        duration.innerHTML = 0;
+        let empty = document.getElementById("board");
+        empty.removeChild(empty.lastElementChild);   
+        start();
+    };
+
+function addBees(){
+    makeBees();
+    updateBees();
+};
