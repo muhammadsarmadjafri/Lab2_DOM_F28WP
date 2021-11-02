@@ -211,7 +211,7 @@ function updateBees() { // update loop for game
     end = document.getElementById("Over");
     //use a fixed update period
     let score = hits.innerHTML;
-    if(score>=1000){
+    if(score ==1000){
         alert("Game Over");
         updateTimer.clearTimeout();
     };
@@ -227,17 +227,17 @@ function isHit(defender, offender) {
         score = Number(score) + 1; //increment the score
         hits.innerHTML = score; //display the new score
     
-    //calculate longest duration
-    let newStingTime = new Date();
-    let thisDuration = newStingTime - lastStingTime;
-    lastStingTime = newStingTime;
-    let longestDuration = Number(duration.innerHTML);
-    if (longestDuration === 0) {
-        longestDuration = thisDuration;
-    } else {
-        if (longestDuration < thisDuration) longestDuration = thisDuration;
-    }
-        document.getElementById("duration").innerHTML = longestDuration;
+        //calculate longest duration
+        let newStingTime = new Date();
+        let thisDuration = newStingTime - lastStingTime;
+        lastStingTime = newStingTime;
+        let longestDuration = Number(duration.innerHTML);
+        if (longestDuration === 0) {
+            longestDuration = thisDuration;
+        } else {
+            if (longestDuration < thisDuration) longestDuration = thisDuration;
+        }
+            document.getElementById("duration").innerHTML = longestDuration;
     }
 }
    
